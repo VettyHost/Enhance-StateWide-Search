@@ -1,0 +1,522 @@
+index.html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional Information Needed UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f5f7fb; /* Light grayish blue from screenshot */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #334155;
+        }
+
+        /* Custom Scrollbar for lists */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        /* Custom Radio Button Styling */
+        .custom-radio {
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.15em;
+            height: 1.15em;
+            border: 2px solid #cbd5e1;
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+        }
+        .custom-radio::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #3b82f6; /* Blue fill */
+        }
+        .custom-radio:checked {
+            border-color: #3b82f6;
+        }
+        .custom-radio:checked::before {
+            transform: scale(1);
+        }
+
+        /* Custom Checkbox */
+        .custom-checkbox {
+            accent-color: #3b82f6;
+            width: 1rem;
+            height: 1rem;
+            cursor: pointer;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="p-6 md:p-10 max-w-5xl mx-auto">
+
+    <h2 class="text-xl font-bold mb-6 text-slate-800">Additional Information Needed</h2>
+
+    <!-- County Criminal Card -->
+    <div class="card p-5">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-sm text-slate-700">County Criminal</h3>
+            <div class="flex items-center space-x-3">
+                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <button class="text-slate-400 hover:text-slate-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg></button>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="flex flex-col space-y-2">
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-slate-500 font-medium">Do You Want Us To Include Developed Names?</span>
+                    <svg class="w-4 h-4 text-blue-500 cursor-pointer" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                </div>
+                <div class="flex items-center space-x-4 mt-2">
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="radio" name="countyDevelopedNames" value="no" class="custom-radio" checked>
+                        <span class="text-sm text-slate-500">No</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer opacity-50">
+                        <input type="radio" name="countyDevelopedNames" value="yes" class="custom-radio" disabled>
+                        <span class="text-sm text-slate-500">Yes</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-slate-500 font-medium">How Many Years of Criminal History Do You Want Us to Search?</span>
+                <select class="border border-slate-300 rounded-md p-2 text-sm text-slate-600 bg-slate-50 w-24 outline-none focus:border-blue-400">
+                    <option>7</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-slate-500 font-medium">How Many Addresses Do You Want Us to Search?</span>
+                <select class="border border-slate-300 rounded-md p-2 text-sm text-slate-600 bg-slate-50 w-24 outline-none focus:border-blue-400">
+                    <option>3</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- National Criminal Card -->
+    <div class="card p-5">
+        <div class="flex justify-between items-center">
+            <h3 class="font-bold text-sm text-slate-700">National Criminal</h3>
+            <div class="flex items-center space-x-3">
+                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <button class="text-slate-400 hover:text-slate-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- State Criminal Card (Modified Area) -->
+    <div class="card p-5 border-blue-200 shadow-md">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-sm text-slate-700">State Criminal</h3>
+            <div class="flex items-center space-x-3">
+                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <button class="text-slate-400 hover:text-slate-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg></button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="flex flex-col space-y-2">
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-slate-500 font-medium">Do You Want Us To Include Developed Names?</span>
+                    <svg class="w-4 h-4 text-blue-500 cursor-pointer" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                </div>
+                <div class="flex items-center space-x-4 mt-2">
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="radio" name="stateDevelopedNames" value="no" class="custom-radio" checked>
+                        <span class="text-sm text-slate-500">No</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer opacity-50">
+                        <input type="radio" name="stateDevelopedNames" value="yes" class="custom-radio" disabled>
+                        <span class="text-sm text-slate-500">Yes</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 items-center">
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-slate-500 font-medium">How Many Years of Criminal History Do You Want Us to Search?</span>
+                <select class="border border-slate-300 rounded-md p-2 text-sm text-slate-600 bg-slate-50 w-24 outline-none focus:border-blue-400">
+                    <option>10</option>
+                    <option>7</option>
+                </select>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-slate-500 font-medium">How Many Addresses Do You Want Us to Search?</span>
+                <select id="address-limit-select" class="border border-slate-300 rounded-md p-2 text-sm text-slate-600 bg-slate-50 w-24 outline-none focus:border-blue-400">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- NEW SECTION: Add Additional State -->
+        <div class="mt-8 border-t border-slate-100 pt-6">
+            <div class="flex flex-col md:flex-row md:items-start gap-4">
+                <div class="w-full md:w-1/2 relative">
+                    <label class="block text-sm text-slate-500 font-medium mb-2">Add Additional State</label>
+                    
+                    <!-- Custom Multi-select Dropdown -->
+                    <div class="relative">
+                        <button id="state-dropdown-btn" class="w-full bg-slate-50 border border-slate-300 rounded-md p-2.5 text-left text-sm text-slate-600 flex justify-between items-center focus:outline-none focus:border-blue-400">
+                            <span id="state-dropdown-label">Select States...</span>
+                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <div id="state-dropdown-menu" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg max-h-60 overflow-y-auto custom-scrollbar">
+                            <div class="p-2 border-b border-slate-100 bg-slate-50 sticky top-0">
+                                <input type="text" id="state-search" placeholder="Search states..." class="w-full text-sm p-1.5 border border-slate-300 rounded focus:outline-none focus:border-blue-400">
+                            </div>
+                            <ul id="state-list-container" class="py-1">
+                                <!-- State list will be generated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning Message (Hidden by default) -->
+            <div id="limit-warning" class="hidden mt-3 text-sm text-red-600 bg-red-50 p-3 rounded-md border border-red-200">
+                You’ve reached the additional address limit. Candidate lived and worked addresses will not be processed. Please contact your Customer Success Manager to update your package preferences.
+            </div>
+
+            <!-- Selected States Display Area -->
+            <div id="selected-states-section" class="mt-6 border border-orange-400 rounded-md p-4 bg-white relative hidden">
+                 <!-- Orange highlight border as requested for visual cue -->
+                <h4 class="font-bold text-sm text-slate-700 mb-4">Added States</h4>
+                
+                <div class="grid grid-cols-2 text-xs font-semibold text-slate-500 border-b border-slate-200 pb-2 mb-2 px-2">
+                    <div>State</div>
+                    <div class="text-right pr-6">Action</div>
+                </div>
+                
+                <!-- Scrollable container (Height set to show approx 2 items: 2 * ~40px = 80px + padding) -->
+                <div class="max-h-[90px] overflow-y-auto custom-scrollbar pr-2" id="selected-states-list">
+                    <!-- Selected rows will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Additional Addresses Card (Bottom one from screenshot) -->
+    <div class="card p-5">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="font-bold text-sm text-slate-700">Add Additional Addresses For County And State Criminal Searches</h3>
+            <div class="flex items-center space-x-3">
+                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <button class="text-slate-400 hover:text-slate-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg></button>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-4 items-end mb-6">
+            <div class="flex-1 w-full">
+                <label class="text-xs text-slate-500 mb-1 block">City/County:</label>
+                <select class="w-full border border-slate-300 rounded-md p-2.5 text-sm text-slate-600 bg-slate-50 outline-none">
+                    <option>Select</option>
+                </select>
+            </div>
+            <div class="flex-1 w-full">
+                <label class="text-xs text-slate-500 mb-1 block">State:</label>
+                <select class="w-full border border-slate-300 rounded-md p-2.5 text-sm text-slate-600 bg-slate-50 outline-none">
+                    <option>Select State</option>
+                </select>
+            </div>
+            <div class="flex-1 w-full">
+                <label class="text-xs text-slate-500 mb-1 block">City/County:</label>
+                <input type="text" placeholder="Enter" class="w-full border border-slate-300 rounded-md p-2.5 text-sm text-slate-600 bg-slate-50 outline-none">
+            </div>
+            <div>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2.5 px-6 rounded-md transition-colors">Add County</button>
+            </div>
+        </div>
+
+        <!-- Sample Added Counties List -->
+        <div class="border border-orange-400 rounded-md p-4 bg-white relative">
+            <h4 class="font-bold text-sm text-slate-700 mb-4">Added Counties</h4>
+            
+            <div class="grid grid-cols-2 text-xs font-semibold text-slate-500 border-b border-slate-200 pb-2 mb-2 px-2">
+                <div>State</div>
+                <div>County</div>
+            </div>
+            
+            <div class="space-y-1 pr-8 relative">
+                <div class="grid grid-cols-2 items-center text-sm text-slate-600 py-2 px-2 border-b border-slate-50">
+                    <div>Georgia</div>
+                    <div class="flex justify-between items-center">
+                        <span>Barrow</span>
+                        <button class="text-slate-400 hover:text-red-500"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 items-center text-sm text-slate-600 py-2 px-2 border-b border-slate-50">
+                    <div>Florida</div>
+                    <div class="flex justify-between items-center">
+                        <span>Baker</span>
+                        <button class="text-slate-400 hover:text-red-500"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                    </div>
+                </div>
+                
+                <!-- Decorative Scrollbar handle from screenshot -->
+                <div class="absolute right-0 top-0 bottom-0 w-4 flex flex-col items-center justify-between py-1">
+                    <svg class="w-3 h-3 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                    <div class="w-2 h-10 bg-slate-400 rounded-full my-1"></div>
+                    <svg class="w-3 h-3 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Buttons -->
+    <div class="flex justify-end items-center space-x-3 mt-6 border-t border-slate-200 pt-6">
+        <button class="bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 font-medium text-sm py-2 px-5 rounded-md flex items-center transition-colors">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            Cancel
+        </button>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm py-2 px-5 rounded-md flex items-center transition-colors shadow-sm">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            Back
+        </button>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm py-2 px-5 rounded-md flex items-center transition-colors shadow-sm">
+            Submit
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Data Setup
+            const excludedStates = ['CA', 'LA', 'NV', 'OH', 'VA', 'WV', 'WY'];
+            const allStatesData = [
+                { id: 'AL', name: 'Alabama' }, { id: 'AK', name: 'Alaska' }, { id: 'AZ', name: 'Arizona' },
+                { id: 'AR', name: 'Arkansas' }, { id: 'CO', name: 'Colorado' }, { id: 'CT', name: 'Connecticut' },
+                { id: 'DE', name: 'Delaware' }, { id: 'FL', name: 'Florida' }, { id: 'GA', name: 'Georgia' },
+                { id: 'HI', name: 'Hawaii' }, { id: 'ID', name: 'Idaho' }, { id: 'IL', name: 'Illinois' },
+                { id: 'IN', name: 'Indiana' }, { id: 'IA', name: 'Iowa' }, { id: 'KS', name: 'Kansas' },
+                { id: 'KY', name: 'Kentucky' }, { id: 'ME', name: 'Maine' }, { id: 'MD', name: 'Maryland' },
+                { id: 'MA', name: 'Massachusetts' }, { id: 'MI', name: 'Michigan' }, { id: 'MN', name: 'Minnesota' },
+                { id: 'MS', name: 'Mississippi' }, { id: 'MO', name: 'Missouri' }, { id: 'MT', name: 'Montana' },
+                { id: 'NE', name: 'Nebraska' }, { id: 'NH', name: 'New Hampshire' }, { id: 'NJ', name: 'New Jersey' },
+                { id: 'NM', name: 'New Mexico' }, { id: 'NY', name: 'New York' }, { id: 'NC', name: 'North Carolina' },
+                { id: 'ND', name: 'North Dakota' }, { id: 'OK', name: 'Oklahoma' }, { id: 'OR', name: 'Oregon' },
+                { id: 'PA', name: 'Pennsylvania' }, { id: 'RI', name: 'Rhode Island' }, { id: 'SC', name: 'South Carolina' },
+                { id: 'SD', name: 'South Dakota' }, { id: 'TN', name: 'Tennessee' }, { id: 'TX', name: 'Texas' },
+                { id: 'UT', name: 'Utah' }, { id: 'VT', name: 'Vermont' }, { id: 'WA', name: 'Washington' },
+                { id: 'WI', name: 'Wisconsin' }
+            ];
+
+            const availableStates = allStatesData.filter(s => !excludedStates.includes(s.id));
+
+            // State Management
+            let selectedStates = []; // Array of state IDs
+            let currentLimit = parseInt(document.getElementById('address-limit-select').value);
+
+            // DOM Elements
+            const addressLimitSelect = document.getElementById('address-limit-select');
+            const dropdownBtn = document.getElementById('state-dropdown-btn');
+            const dropdownLabel = document.getElementById('state-dropdown-label');
+            const dropdownMenu = document.getElementById('state-dropdown-menu');
+            const stateListContainer = document.getElementById('state-list-container');
+            const searchInput = document.getElementById('state-search');
+            const warningMessage = document.getElementById('limit-warning');
+            const selectedStatesSection = document.getElementById('selected-states-section');
+            const selectedStatesList = document.getElementById('selected-states-list');
+
+            // Initialize Dropdown List
+            function renderDropdownItems(filterText = '') {
+                stateListContainer.innerHTML = '';
+                const filteredStates = availableStates.filter(s => s.name.toLowerCase().includes(filterText.toLowerCase()));
+                
+                if (filteredStates.length === 0) {
+                    stateListContainer.innerHTML = '<li class="px-4 py-2 text-sm text-slate-500">No states found.</li>';
+                    return;
+                }
+
+                filteredStates.forEach(state => {
+                    const li = document.createElement('li');
+                    li.className = 'px-4 py-2 hover:bg-slate-50 cursor-pointer flex items-center space-x-3';
+                    
+                    const isChecked = selectedStates.includes(state.id);
+                    
+                    li.innerHTML = `
+                        <input type="checkbox" id="chk-${state.id}" value="${state.id}" class="custom-checkbox" ${isChecked ? 'checked' : ''}>
+                        <label for="chk-${state.id}" class="text-sm text-slate-700 cursor-pointer w-full select-none">${state.name}</label>
+                    `;
+                    
+                    // Handle checkbox click logic
+                    const checkbox = li.querySelector('input');
+                    checkbox.addEventListener('change', (e) => {
+                        handleStateToggle(state.id, e.target.checked, e);
+                    });
+
+                    // Allow clicking whole row to toggle
+                    li.addEventListener('click', (e) => {
+                        if(e.target.tagName !== 'INPUT') {
+                            checkbox.checked = !checkbox.checked;
+                            // Manually trigger change event
+                            const event = new Event('change');
+                            checkbox.dispatchEvent(event);
+                        }
+                    });
+
+                    stateListContainer.appendChild(li);
+                });
+            }
+
+            // Handle checking/unchecking a state
+            function handleStateToggle(stateId, isChecking, event) {
+                if (isChecking) {
+                    if (selectedStates.length >= currentLimit) {
+                        // Limit reached, prevent checking
+                        event.preventDefault();
+                        event.target.checked = false; 
+                        showWarning();
+                    } else {
+                        selectedStates.push(stateId);
+                        hideWarning();
+                        updateUI();
+                    }
+                } else {
+                    // Unchecking
+                    selectedStates = selectedStates.filter(id => id !== stateId);
+                    hideWarning(); // If warning was showing, hide it since space freed up
+                    updateUI();
+                }
+            }
+
+            // Remove state from selected list (trash icon)
+            window.removeSelectedState = function(stateId) {
+                selectedStates = selectedStates.filter(id => id !== stateId);
+                hideWarning();
+                
+                // Uncheck in dropdown if it's open
+                const cb = document.getElementById(`chk-${stateId}`);
+                if (cb) cb.checked = false;
+                
+                updateUI();
+            };
+
+            // Update entire UI based on selectedStates array
+            function updateUI() {
+                // Update dropdown label
+                if (selectedStates.length === 0) {
+                    dropdownLabel.textContent = "Select States...";
+                } else {
+                    dropdownLabel.textContent = `${selectedStates.length} state(s) selected`;
+                }
+
+                // Render Selected States Table
+                selectedStatesList.innerHTML = '';
+                
+                if (selectedStates.length > 0) {
+                    selectedStatesSection.classList.remove('hidden');
+                    
+                    selectedStates.forEach(stateId => {
+                        const stateObj = availableStates.find(s => s.id === stateId);
+                        const row = document.createElement('div');
+                        row.className = 'grid grid-cols-2 items-center text-sm text-slate-600 py-2.5 px-2 border-b border-slate-50 last:border-0 hover:bg-slate-50 transition-colors rounded';
+                        row.innerHTML = `
+                            <div>${stateObj.name}</div>
+                            <div class="flex justify-end">
+                                <button onclick="removeSelectedState('${stateId}')" class="text-slate-400 hover:text-red-500 p-1" title="Remove">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                </button>
+                            </div>
+                        `;
+                        selectedStatesList.appendChild(row);
+                    });
+                } else {
+                    selectedStatesSection.classList.add('hidden');
+                }
+            }
+
+            // Warning message controls
+            function showWarning() {
+                warningMessage.classList.remove('hidden');
+            }
+            function hideWarning() {
+                warningMessage.classList.add('hidden');
+            }
+
+            // Dropdown Toggle Logic
+            dropdownBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdownMenu.classList.toggle('hidden');
+                if (!dropdownMenu.classList.contains('hidden')) {
+                    searchInput.focus();
+                }
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+
+            // Search filter functionality
+            searchInput.addEventListener('input', (e) => {
+                renderDropdownItems(e.target.value);
+            });
+
+            // Address Limit Change Listener
+            addressLimitSelect.addEventListener('change', (e) => {
+                currentLimit = parseInt(e.target.value);
+                
+                // If limit is reduced below current selection, automatically trim the selection
+                if (selectedStates.length > currentLimit) {
+                    selectedStates = selectedStates.slice(0, currentLimit);
+                    // Re-render dropdown to update checkboxes
+                    renderDropdownItems(searchInput.value);
+                    updateUI();
+                    
+                    // Briefly show warning to indicate limitation kicked in
+                    showWarning();
+                    setTimeout(hideWarning, 4000); // Hide after 4s
+                } else {
+                    hideWarning();
+                }
+            });
+
+            // Initial Render
+            renderDropdownItems();
+            updateUI();
+        });
+    </script>
+</body>
+</html>
