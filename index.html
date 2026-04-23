@@ -218,12 +218,12 @@
             </div>
 
             <!-- Limit Warning Message (Hidden by default) -->
-            <div id="limit-warning" class="hidden mt-3 text-sm text-slate-500 font-medium">
-                Your additional state limit reached.
+            <div id="limit-warning" class="hidden mt-3 text-sm text-red-600 font-medium">
+                Preferred states limit reached.
             </div>
 
-            <!-- Always visible Note -->
-            <div class="mt-2 text-sm text-slate-500 font-medium">
+            <!-- Note (Hidden by default, shown when states are selected) -->
+            <div id="preferred-states-note" class="hidden mt-2 text-sm text-slate-500 font-medium">
                 Note: The number of state searches is set by your package parameters. The states you select here will be prioritized, which may result in some lived-in addresses not being searched if your selections reach your package limit. To search additional states, use Add New Check after submission. To update your package, contact your account manager.
             </div>
 
@@ -346,6 +346,7 @@
             const selectedStatesSection = document.getElementById('selected-states-section');
             const selectedStatesList = document.getElementById('selected-states-list');
             const reselectWarning = document.getElementById('reselect-warning');
+            const preferredStatesNote = document.getElementById('preferred-states-note');
 
             // NEW: DOM Elements for Added Counties Section
             const additionalStateSelect = document.getElementById('additional-state-select');
@@ -505,8 +506,10 @@
                 // Update dropdown label
                 if (selectedStates.length === 0) {
                     dropdownLabel.textContent = "Select States...";
+                    preferredStatesNote.classList.add('hidden'); // Hide note when no states are selected
                 } else {
                     dropdownLabel.textContent = `${selectedStates.length} state(s) selected`;
+                    preferredStatesNote.classList.remove('hidden'); // Show note when states are selected
                 }
 
                 // Render Selected States Table
