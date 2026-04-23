@@ -189,10 +189,9 @@
 
         <!-- NEW SECTION: Add Additional State -->
         <div class="mt-4">
+            <label class="block text-sm text-slate-500 font-medium mb-2">Select Preferred States</label>
             <div class="flex flex-col md:flex-row md:items-start gap-4">
                 <div class="w-full md:w-1/2 relative">
-                    <label class="block text-sm text-slate-500 font-medium mb-2">Select Preferred States</label>
-                    
                     <!-- Custom Multi-select Dropdown -->
                     <div class="relative">
                         <button id="state-dropdown-btn" class="w-full bg-slate-50 border border-slate-300 rounded-md p-2.5 text-left text-sm text-slate-600 flex justify-between items-center focus:outline-none focus:border-blue-400">
@@ -215,11 +214,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Limit Warning Message (Hidden by default) -->
-            <div id="limit-warning" class="hidden mt-3 text-sm text-red-600 font-medium">
-                Preferred states limit reached.
+                
+                <!-- Limit Warning Message (Moved beside the dropdown) -->
+                <div id="limit-warning" class="hidden mt-2 md:mt-2.5 text-sm text-red-600 font-medium">
+                    Preferred states limit reached.
+                </div>
             </div>
 
             <!-- Note (Hidden by default, shown when states are selected) -->
