@@ -201,8 +201,8 @@
                         </button>
                         
                         <!-- Reselect Warning Message -->
-                        <div id="reselect-warning" class="hidden mt-1.5 text-xs text-red-500 font-medium">
-                            Address count updated. Please reselect your Preferred states.
+                        <div id="reselect-warning" class="hidden mt-1.5 text-xs text-black font-medium">
+                            Address count updated
                         </div>
                         
                         <div id="state-dropdown-menu" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg max-h-60 overflow-y-auto custom-scrollbar">
@@ -217,8 +217,13 @@
                 </div>
             </div>
 
-            <!-- Warning Message (Hidden by default) -->
-            <div id="limit-warning" class="hidden mt-3 text-sm text-red-600 bg-red-50 p-3 rounded-md border border-red-200">
+            <!-- Limit Warning Message (Hidden by default) -->
+            <div id="limit-warning" class="hidden mt-3 text-sm text-slate-500 font-medium">
+                Your additional state limit reached.
+            </div>
+
+            <!-- Always visible Note -->
+            <div class="mt-2 text-sm text-slate-500">
                 Note: The number of state searches is set by your package parameters. The states you select here will be prioritized, which may result in some lived-in addresses not being searched if your selections reach your package limit. To search additional states, use Add New Check after submission. To update your package, contact your account manager.
             </div>
 
